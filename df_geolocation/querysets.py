@@ -16,7 +16,8 @@ class PositionQuerySet(models.QuerySet):
     #         earthbox=EarthBox(LLToEarth(lat, lon), meters),
     #     ).filter(earthbox__in_georange=LLToEarth(self.lat_field, self.lon_field))
 
-    def in_range(self, lat, lon, meters):
+    def in_range(self, lat, lon, meters=0, miles=0):
+        meters = meters or (miles * 1609.34)
         return self.annotate_range(lat, lon).filter(range__lte=meters)
 
     def annotate_range(self, lat, lon):
