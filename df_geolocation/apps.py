@@ -7,4 +7,4 @@ class DfGeolocationConfig(AppConfig):
     verbose_name = _("Django DF GEO Location")
 
     class DFMeta:
-        api_path = "df_geolocation/"
+        api_path = "geolocation/"
