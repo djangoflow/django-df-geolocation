@@ -14,7 +14,7 @@ class AddressMixin(models.Model):
     postcode = models.CharField(_("Postcode"), max_length=8, null=True, blank=True)
     country = CountryField(_("Country"), default="NL")
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.street}, {self.postcode} {self.city}, {self.country}"
 
     class Meta:
